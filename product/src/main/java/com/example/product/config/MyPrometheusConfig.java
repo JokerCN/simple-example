@@ -1,15 +1,12 @@
 package com.example.product.config;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class PrometheusConfig {
+public class MyPrometheusConfig {
 
 //    @Bean
+//    @ConditionalOnClass(name = "org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer")
 //    MeterRegistryCustomizer<MeterRegistry> configurer(@Value("${spring.application.name") String applicationName){
 //        return registry -> registry.config().commonTags("application", applicationName);
 //    }

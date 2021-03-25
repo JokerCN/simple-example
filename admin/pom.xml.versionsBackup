@@ -5,11 +5,11 @@
     <parent>
         <groupId>com.example</groupId>
         <artifactId>demo</artifactId>
-        <version>0.0.1</version>
+        <version>{app.version}</version>
     </parent>
 
     <artifactId>admin</artifactId>
-    <version>0.0.1</version>
+    <version>{app.version}</version>
     <name>admin</name>
     <description>admin project for Spring Boot</description>
     <properties>

@@ -1,7 +1,6 @@
-package com.cicc.nacos.load.balance.weight.utils;
+package com.example.common.utils;
 
-
-import com.cicc.nacos.load.balance.weight.exception.NacosLoadBalanceException;
+import com.example.common.exceptions.CommonException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -36,13 +35,13 @@ public class SerializeUtils {
      *
      * @param json json string
      * @return {@link JsonNode}
-     * @throws NacosLoadBalanceException if deserialize failed
+     * @throws com.example.common.exceptions.CommonException if deserialize failed
      */
     public static JsonNode toObj(String json) {
         try {
             return objectMapper.readTree(json);
         } catch (IOException e) {
-            throw new NacosLoadBalanceException(e);
+            throw new CommonException(e);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.cicc.nacos.load.balance.weight.utils;
+package com.example.common.utils;
 
 import lombok.Data;
 

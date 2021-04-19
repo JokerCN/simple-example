@@ -2,10 +2,6 @@ server:
   port: 8080
 
 spring:
-  application:
-    name: product-service
-  profiles:
-    active: dev
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
@@ -19,5 +15,17 @@ spring:
     console:
       enabled: true
       path: /h2-console
-  main:
-    lazy-initialization: false
+
+ribbon:
+  eager-load:
+    enabled: true # 有时ribbon的懒加载机制会导致第一次服务调用超时，可以使用eager-load模式
+    clients: order-service # 服务名称列表，以逗号分隔
+  ReadTimeout: 2000 #秒, 可根据具体业务情况设置
+  ConnectTimeout: 2000 #秒, 可根据具体业务情况设置
+  #同一台实例最大重试次数，不包括首次调用
+  MaxAutoRetries: 1
+  #重试负载均衡其他的实例最大重试次数，不包括首次
+  MaxAutoRetriesNextServer: 1
+  # 是否所有操作都重试, 当设置为false时，仅对get请求重试; 如果设置为true时，便会对所有的请求进行重试。
+  # 请确保PUT、POST等方法已经进行幂等处理后才能设置为true
+  OkToRetryOnAllOperations: false

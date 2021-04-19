@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  nacos:
+    image: yangyiwei/nacos
+    ports:
+      - 8848:8848
+    depends_on:
+      - "mysql"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: nacos
+      MYSQL_DB: nacos
+  mysql:
+    image: yangyiwei/nacos-mysql
+    volumes:
+      - nacos-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: nacos
+      MYSQL_DATABASE: nacos
+
+volumes:
+  nacos-mysql-data:

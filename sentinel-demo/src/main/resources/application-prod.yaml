@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /
+  endpoint:
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1ms
+        descriptions: true
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090

@@ -37,7 +37,7 @@
         <protobuf.version>3.9.1</protobuf.version>
         <protobuf.maven.plugin.version>0.6.1</protobuf.maven.plugin.version>
         <grpc.version>1.29.0</grpc.version>
-<!--        <protobuf.version>3.11.0</protobuf.version>-->
+        <sentinel.version>1.8.1</sentinel.version>
         <tomcat.annotation.api.version>6.0.53</tomcat.annotation.api.version>
     </properties>
 
@@ -48,6 +48,7 @@
         <module>order</module>
         <module>common</module>
         <module>grpc</module>
+        <module>sentinel-demo</module>
     </modules>
 
     <profiles>
@@ -202,6 +203,24 @@
                 <artifactId>annotations-api</artifactId>
                 <version>${tomcat.annotation.api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-transport-simple-http</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>${sentinel.version}</version>
             </dependency>
 
         </dependencies>
